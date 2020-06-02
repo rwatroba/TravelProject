@@ -27,14 +27,15 @@ public class TestClass {
 	}
 	
 	@AfterClass
-	public void afterClass() {
+	public void afterClass() throws InterruptedException {
+		Thread.sleep(5000);
 		driver.quit();
 	}
 
 	@Test()
-	public void clickFligthsButton() {
+	public void clickFligthsButton() throws InterruptedException {
 		driver.get(baseUrl);
 		homePage.clickFlightsButton();
-		
+		homePage.bookFlight();
 	}
 }
